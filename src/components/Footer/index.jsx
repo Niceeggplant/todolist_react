@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import './index.css'
+import { Button } from 'antd';
 
 export default class Footer extends Component {
 
-	//全选checkbox的回调
+	//全选checkbox
 	handleCheckAll = (event)=>{
 		this.props.checkAllTodo(event.target.checked)
 	}
 
-	//清除已完成任务的回调
+	//清除已完成任务
 	handleClearAllDone = ()=>{
 		this.props.clearAllDone()
 	}
@@ -25,7 +26,9 @@ export default class Footer extends Component {
 				<span>
 					<span>已完成{doneCount}</span> / 全部{total}
 				</span>
-				<button onClick={this.handleClearAllDone} className="btn btn-danger">清除已完成任务</button>
+				<Button type="primary" danger onClick={this.handleClearAllDone} size={"small"}  >
+					清除已完成任务
+				</Button>
 			</div>
 		)
 	}

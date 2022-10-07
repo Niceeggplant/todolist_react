@@ -22,8 +22,12 @@ export default class App extends Component {
 	updateTodo = (id,done)=>{
 		const {todos} = this.state
 		const newTodos = todos.map((todoObj)=>{
-			if(todoObj.id === id) return {...todoObj,done}
-			else return todoObj
+			if(todoObj.id === id) {
+				return {...todoObj,done}
+			}
+			else {
+				return todoObj
+			}
 		})
 		this.setState({todos:newTodos})
 	}
@@ -55,8 +59,8 @@ export default class App extends Component {
 	render() {
 		const {todos} = this.state
 		return (
-			<div className="todo-container">
-				<div className="todo-wrap">
+			<div className="todo-wrap">
+				<div className="todo-box">
 					<Header addTodo={this.addTodo}/>
 					<List todos={todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
 					<Footer todos={todos} checkAllTodo={this.checkAllTodo} clearAllDone={this.clearAllDone}/>
